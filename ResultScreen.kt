@@ -18,10 +18,10 @@ fun ResultScreen(
     onRestart: () -> Unit
 ) {
     val message = when {
-        finalScore == 3 -> "¡Excelente! Eres un verdadero experto en Android"
-        finalScore == 2 -> "¡Muy bien! Tienes buen conocimiento de Android"
+        finalScore == 3 -> "Excelente, sabes bastante"
+        finalScore == 2 -> "Tienes buen conocimiento de Android"
         finalScore == 1 -> "No está mal, pero practica más"
-        else -> "¡Sigue estudiando! Aún hay mucho por aprender"
+        else -> "Sigue estudiando"
     }
 
     Column(
