@@ -43,7 +43,7 @@ fun AndroidPediaApp() {
     if (!quizState.isQuizStarted) {
         WelcomeScreen(
             studentName = "Gabriela Maldonado",
-            studentId = "00112233",
+            studentId = "00133523",
             onStartQuiz = { quizState = quizState.copy(isQuizStarted = true) }
         )
     } else if (!quizState.isQuizFinished) {
