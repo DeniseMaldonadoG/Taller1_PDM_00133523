@@ -4,23 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-
 import com.pdm0126.taller1_00133523.ui.theme.AndroidPediaByMaldonadoTheme
 import com.pdm0126.taller1_00133523.ui.theme.QuizState
-
 import com.pdm0126.taller1_00133523.ui.theme.WelcomeScreen
 import com.pdm0126.taller1_00133523.ui.theme.ResultScreen
 import com.pdm0126.taller1_00133523.ui.theme.QuizScreen
 import androidx.compose.runtime.*
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.saveable.rememberSaveable
 import com.pdm0126.taller1_00133523.ui.theme.quizQuestions
+
 
 
 
@@ -38,7 +31,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun AndroidPediaApp() {
-    var quizState by remember { mutableStateOf(QuizState()) }
+    var quizState by rememberSaveable(
+        stateSaver = QuizState.Saver
+    )  { mutableStateOf(QuizState()) }
 
     if (!quizState.isQuizStarted) {
         WelcomeScreen(
