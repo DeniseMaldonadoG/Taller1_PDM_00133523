@@ -8,6 +8,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+
 
 
 @Composable
@@ -22,6 +25,7 @@ fun QuizScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -44,7 +48,7 @@ fun QuizScreen(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Card de pregunta
+
         Card(
             modifier = Modifier
                 .fillMaxWidth()
@@ -104,7 +108,7 @@ fun QuizScreen(
                     modifier = Modifier.padding(16.dp)
                 ) {
                     Text(
-                        text = "💡 Fun Fact",
+                        text = "Fun Fact",
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold
                     )
@@ -116,7 +120,7 @@ fun QuizScreen(
             }
         }
 
-        // botton
+        // button
         Spacer(modifier = Modifier.height(24.dp))
         val buttonText = if (quizState.currentQuestionIndex == 2) "Ver Resultado" else "Siguiente"
         Button(
